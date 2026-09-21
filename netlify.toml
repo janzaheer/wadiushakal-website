@@ -1,0 +1,10 @@
+# Netlify build settings.
+# vite-ssg pre-renders / and /contact to real HTML files (ssgOptions.dirStyle = 'nested' in
+# vite.config.js), so the site needs no rewrite rules — Netlify serves those files directly.
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  # Matches the Node version the build is developed against; vite 8 needs 20.19+.
+  NODE_VERSION = "20"
