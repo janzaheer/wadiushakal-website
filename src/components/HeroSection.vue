@@ -3,9 +3,11 @@ import AppIcon from './ui/AppIcon.vue';
 import { company } from '../data/site';
 import { photo } from '../data/images';
 
-// The hero is the owner's own photograph of a cargo truck, used exactly as supplied (no crop, no colour
-// edit — the framing is done with object-position below). It sits in a panel on the right so the copy on
-// the left stays on the plain page background: no overlay or fade is needed anywhere over the photo.
+// An open desert highway running to the horizon, used exactly as supplied (no crop, no colour edit — the
+// framing is done with object-position below). It sits in a panel on the right so the copy on the left
+// stays on the plain page background: no overlay or fade is needed anywhere over the photo.
+// Deliberately carries no vehicle: every truck shot we found showed either a foreign number plate or
+// another haulier's livery, neither of which belongs on our own homepage.
 const road = photo('hero-logistics');
 </script>
 
@@ -142,17 +144,18 @@ const road = photo('hero-logistics');
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* keeps the truck low and to the right, with the sky and the flyover behind the copy */
-  object-position: 60% 58%;
+  /* the road's vanishing point is dead centre in this frame, so a centred crop keeps it on the horizon
+     line at every panel width; the sky above it is what the copy sits against */
+  object-position: 50% 50%;
   /* light treatment only — the overcast sky stays bright, matching the light theme */
   filter: contrast(1.04) saturate(1.04);
 }
 
-/* Tablet & phone: the photo still covers the whole hero; the crop moves so the truck stays in view below
-   the copy card rather than behind it. */
+/* Tablet & phone: the hero is tall and narrow, so `cover` crops the sides hard and leaves a vertical strip
+   through the middle of the frame — which is the road itself. Centred is what we want here too. */
 @media (max-width: 1099px) {
   .hero__bg :deep(img) {
-    object-position: 62% 72%;
+    object-position: 50% 50%;
   }
 }
 
