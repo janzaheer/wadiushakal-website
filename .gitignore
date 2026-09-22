@@ -2,3 +2,6 @@ node_modules/
 dist/
 .vite-ssg-temp/
 .DS_Store
+
+# Created by the Netlify CLI during manual deploys
+.netlify/
